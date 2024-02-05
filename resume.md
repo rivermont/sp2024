@@ -5,7 +5,7 @@
 Graduate student of Geography at Appalachian State University, investigating invasive plant mapping and control in the High Country.
 Passionate about avian conservation, invasive species control, and computer science. Interested in pursuing a career in conservation mapping or natural resource.
 
-**[Personal website](https://uc.appstate.edu/sites/default/files/primary_appalachian_logo_black_2023.png)**
+**[Personal website](https://rivermont.xyz/)**
 
 
 ## Graduate Teaching Assistant (*Aug 2023-Present*)
