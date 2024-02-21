@@ -42,6 +42,11 @@
 
         map.on('click', onMapClick);
 
+        // ajax geojson
+        L.geoJson.ajax("assets/route2.geojson", {onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.name);
+        }}).addTo(map);
+
     </script>
 
 </body>
