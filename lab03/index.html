@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Route Map</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js" integrity="sha512-Abr21JO2YqcJ03XGZRPuZSWKBhJpUAR6+2wH5zBeO4wAw4oksr8PRdF+BKIRsxvCdq+Mv4670rZ+dLnIyabbGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+	/*@font-face {*/
+	/*font-family: "Computer Modern";*/
+	/*src: url('./cmunss.otf');*/
+	/*}*/
+
+	body {
+	margin: 0;
+	padding: 0;
+	}
+	#map {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	}
+	#title {
+	position: absolute;
+	margin: 12px 0 0 12px;
+	padding: 10px 12px;
+	background: #efefef;
+	border: 1px solid grey;
+	z-index: 800;
+	}
+	#content {
+	position: absolute;
+	bottom: 0;
+	margin: 0 0 12px 12px;
+	padding: 8px;
+	max-width: 30%;
+	background: #efefef;
+	border: 1px solid grey;
+	z-index: 800;
+	}
+	/*#content p {*/
+	/*margin: 0;*/
+	/*font-family: "Computer Modern";*/
+	}
+	</style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="title">
+        <h1>Grandfather Spring Count - 105 Corridor</h1>
+    </div>
+    <div id="content">
+        <p>Map description goes here...</p>
+        <p>Author: <a href="https://rivermont.xyz">Will Bennett</a><br>
+        <small>Source code available on <a href="https://github.com/rivermont/sp2024/tree/master/lab03" target="_blank">GitHub</a>.</small></p>
+    </div>
+
+	<!-- Leaflet code -->
+	<script src="./GrandfatherRoute1.js"></script>
+	<script src="./GrandfatherStops.js"></script>
+	<script>
+	var options = {
+		// center: [36.1, 80],
+		// zoom: 9,
+		zoomControl: false
+	}
+
+	var map = L.map('map', options);
+
+	L.control.zoom({
+		position: 'topright'
+	}).addTo(map);
+
+	var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+		maxZoom: 14
+	}).addTo(map);
+
+	// display data
+	var route = L.geoJson(route, {
+	    style: function(feature) {
+            return {
+            lineJoin: "miter",
+            color: "#1c9099",
+            weight: 5,
+            //opacity: 0.2,
+            dashArray: "10, 8"
+            }
+        }
+    }).addTo(map);
+
+	var hotspots = L.geoJson(stops, {
+	    onEachFeature: function(feature, layer) {
+	        layer.bindPopup(feature.properties['description']);
+            layer.bindTooltip(feature.properties['name']);
+        }
+	}).addTo(map);
+
+	// zoom map to data extent
+	map.fitBounds(route.getBounds());
+
+	</script>
+</body>
+</html>
