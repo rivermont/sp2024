@@ -5,7 +5,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Church Road, Foscoe",
-        "desc": "",
+        "desc": "The first stop of the route, Church Road has some agricultural fields that host blackbirds, sparrows, and may yield more uncommon grassland species like meadowlarks.",
         "url": "https://ebird.org/checklist/S138685552"
       },
       "geometry": {
@@ -19,38 +19,8 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Wilson Center for Nature Discovery",
-        "desc": "",
-        "url": "https://ebird.org/checklist/S138502812"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -81.8356464,
-          36.0902426
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Beacon Heights",
-        "desc": "",
-        "url": "https://ebird.org/checklist/S138691218"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -81.8301267,
-          36.0838728
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "name": "Riverbank Cove",
-        "desc": ""
+        "desc": "This road and David McLean Rd across the river are very birdy early in the morning. They run along a riparian corridor on the Watauga River, and Riverbank Cove has a small pond that may have Wood Ducks or geese."
       },
       "geometry": {
         "coordinates": [
@@ -183,8 +153,23 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
+        "name": "Wilson Center for Nature Discovery",
+        "desc": "The nature museum at the Grandfather Mountain Stewardship Foundation has hummingbird and seed platform feeders, which attract species regularly.",
+        "url": "https://ebird.org/checklist/S138502812"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.8356464,
+          36.0902426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "name": "Grandfather Mountain Swinging Bridge",
-        "desc": "",
+        "desc": "The swinging bridge attraction on Grandfather Mountain leads to Linville Peak, allowing the highest-elevation birdwatching in the count area.",
         "url": "https://ebird.org/checklist/S138502464"
       },
       "geometry": {
@@ -193,6 +178,21 @@ var stops = {
           36.0947596866791
         ],
         "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Beacon Heights",
+        "desc": "The Beacon Heights Overlook trail provides access to a different section of woods, which can yield some missing species.",
+        "url": "https://ebird.org/checklist/S138691218"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -81.8301267,
+          36.0838728
+        ]
       }
     }
 ]};

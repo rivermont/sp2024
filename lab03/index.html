@@ -8,11 +8,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js" integrity="sha512-Abr21JO2YqcJ03XGZRPuZSWKBhJpUAR6+2wH5zBeO4wAw4oksr8PRdF+BKIRsxvCdq+Mv4670rZ+dLnIyabbGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-	/*@font-face {*/
-	/*font-family: "Computer Modern";*/
-	/*src: url('./cmunss.otf');*/
-	/*}*/
-
 	body {
 	margin: 0;
 	padding: 0;
@@ -24,8 +19,8 @@
 	}
 	#title {
 	position: absolute;
-	margin: 12px 0 0 12px;
-	padding: 10px 12px;
+	margin: 12px;
+	padding: 0 1em;
 	background: #efefef;
 	border: 1px solid grey;
 	z-index: 800;
@@ -35,16 +30,12 @@
 	bottom: 0;
 	margin: 0 0 12px 12px;
 	padding: 8px;
-	max-width: 30%;
+	max-width: 27%;
 	background: #efefef;
 	border: 1px solid grey;
 	z-index: 800;
 	}
-	/*#content p {*/
-	/*margin: 0;*/
-	/*font-family: "Computer Modern";*/
-	}
-	</style>
+    </style>
 </head>
 <body>
     <div id="map"></div>
@@ -52,27 +43,24 @@
         <h1>Grandfather Spring Count - 105 Corridor</h1>
     </div>
     <div id="content">
-        <p>Map description goes here...</p>
+        <p>This map shows one route that is part of the Grandfather Mountain Christmas and Spring Bird Counts. Beginning in Foscoe, it follows NC Highway 105 and stops at the most 'birdy' locations that are publicly accessible or have given permission to bird counters. Several stops are along the headwaters of the Watauga and Linville Rivers which both attract migratory and resident bird species.</p>
+        <p>The Grandfather Mountain Christmas count is part of National Audubon Society's Christmas Bird Count program, which collects data on a massive scale yearly to find trends in bird populations. Grandfather Mountain also performs the same count in late spring to monitor breeding bird populations.</p>
         <p>Author: <a href="https://rivermont.xyz">Will Bennett</a><br>
         <small>Source code available on <a href="https://github.com/rivermont/sp2024/tree/master/lab03" target="_blank">GitHub</a>.</small></p>
     </div>
 
-	<!-- Leaflet code -->
+	<!-- begin Leaflet code -->
 	<script src="./GrandfatherRoute1.js"></script>
 	<script src="./GrandfatherStops.js"></script>
 	<script>
-	var options = {
-		// center: [36.1, 80],
-		// zoom: 9,
-		zoomControl: false
-	}
 
-	var map = L.map('map', options);
+	var map = L.map('map', {zoomControl: false});
 
 	L.control.zoom({
 		position: 'topright'
 	}).addTo(map);
 
+    // basemap
 	var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
 		maxZoom: 14
@@ -93,8 +81,8 @@
 
 	var hotspots = L.geoJson(stops, {
 	    onEachFeature: function(feature, layer) {
-	        layer.bindPopup(feature.properties['description']);
             layer.bindTooltip(feature.properties['name']);
+	        layer.bindPopup('<b>' + feature.properties.name + '</b><p>' + feature.properties['desc'] + '</p><a href="' + feature.properties.url + '" target="_blank">eBird checklist</a>');
         }
 	}).addTo(map);
 
