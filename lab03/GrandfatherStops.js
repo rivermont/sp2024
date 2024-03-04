@@ -34,7 +34,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Watauga 105 Recycling Center",
-        "desc": "",
+        "desc": "There are not many places to stop along Highway 105, but the Watauga County recycling center gets close to the Watauga River and can have other interesting trash birds.",
         "url": "https://ebird.org/checklist/S138686497"
       },
       "geometry": {
@@ -48,8 +48,8 @@ var stops = {
     {
       "type": "Feature",
       "properties": {
-        "name": "Wetlands behind Grandview",
-        "desc": "",
+        "name": "Foscoe Wetland Conservation Area",
+        "desc": "Behind the Grandview Restaurant, a small wetlands often hosts marsh species year-round and could 'trap' rare migrating birds in the spring.",
         "url": "https://ebird.org/checklist/S138686890"
       },
       "geometry": {
@@ -64,7 +64,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Grandfather Center",
-        "desc": "",
+        "desc": "The Grandfather Center shopping area is a good place to find 'urban' birds, like European Starlings and House Sparrows. Because the count area is so rural it can be difficult to find those species elsewhere.",
         "url": "https://ebird.org/checklist/S138687676"
       },
       "geometry": {
@@ -79,7 +79,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Linville Gap wetlands",
-        "desc": "",
+        "desc": "At the headwaters of the Linville River, nestled in Linville Gap lies a large marshy bog which provides a unique habitat in the mountains.",
         "url": "https://ebird.org/checklist/S138492308"
       },
       "geometry": {
@@ -94,7 +94,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Tanglewood Cemetery Neighborhood",
-        "desc": "",
+        "desc": "One of the few un-gated neighborhoods on this count route, driving the streets around Tanglewood Cemetery adds some more numbers to common woodland species.",
         "url": "https://ebird.org/checklist/S138690015"
       },
       "geometry": {
@@ -109,7 +109,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Fields below Linville VFD",
-        "desc": "",
+        "desc": "Between Highway 105 and the Linville River there is a large field and privately-owned wetlands. This one has enough standing water to often provide some ducks for the count.",
         "url": "https://ebird.org/checklist/S138690206"
       },
       "geometry": {
@@ -124,7 +124,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Old Yonahlossee Road",
-        "desc": "",
+        "desc": "Just down the mountain from MacRae Meadows is Old Yonahlossee Road, which can provide some mature forest cove species.",
         "url": "https://ebird.org/checklist/S138690721"
       },
       "geometry": {
@@ -139,7 +139,7 @@ var stops = {
       "type": "Feature",
       "properties": {
         "name": "Half Moon Overlook",
-        "desc": "",
+        "desc": "The first overlook within the park often has warblers close by, and provides a view of the valley.",
         "url": "https://ebird.org/checklist/S138502904"
       },
       "geometry": {
