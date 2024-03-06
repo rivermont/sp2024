@@ -1,59 +1,43 @@
-Jan 22, 2024
-Bhuwan Thapa
+# PLN 5460
+## Dr. Bhuwan Thapa
+
+#### Jan 22, 2024
 
 Market-based vs non-market based environmental policies
 
 Non-market based:
-
-setting regulation limits on emissions, etc
-
-R&D subsidies
+- setting regulation limits on emissions, etc
+- R&D subsidies
 
 Market based:
+- Taxes
+- Trading schemes (cap and trade)
+- Feed-in tariffs (credit for feeding solar back to grid)
+- Deposit and refund (cans and bottles)
 
-Taxes
-
-Trading schemes (cap and trade)
-
-Feed-in tariffs (credit for feeding solar back to grid)
-
-Deposit and refund (cans and bottles)
-
-Branches and levels of government
-Executive, legislative, judicial
-Federal, state, local
+Branches and levels of government:
+- Executive, legislative, judicial
+- Federal, state, local
 
 Policy actions before 1970:
-
-based on sustained use and multifunctional use
+- based on sustained use and multifunctional use
 
 Policy actions from 1970 to 2023
-
-establishment of EPA
-
-NEPA (requirement of environmental assessment for new projects)
-
-Clean Air Act
-
-Clean Water Act
+- establishment of EPA
+- NEPA (requirement of environmental assessment for new projects)
+- Clean Air Act
+- Clean Water Act
 
 Reagan 1980s:
-
-reduction in power of EPA
-
-budget cuts for environmental programs
-
-agency appointments
-
-shifting environmental responsibilities from federal to the states and private
-
-but also some good amendments to Clean Water and Safe Drinking Water Acts
+- reduction in power of EPA
+- budget cuts for environmental programs
+- agency appointments
+- shifting environmental responsibilities from federal to the states and private
+- but also some good amendments to Clean Water and Safe Drinking Water Acts
 
 Bush Sr.:
-
-creation of US Global Change Research Program
-
-research into climate change globally
+- creation of US Global Change Research Program
+- research into climate change globally
 
 Air quality legislation has not largely improved since the 1970s; some local improvements
 
@@ -64,26 +48,19 @@ Point-source pollution has been attacked strongly
 Non point-source pollution (agriculture) have not been targeted successfully
 
 New water quality challenges:
+- microplastics
+- PFAS forever chemicals
 
-microplastics
+#### Jan 24, 2024
 
-PFAS forever chemicals
-
-PLN 4460
-Jan 24, 2024
-Bhuwan Thapa
-
-Daly
+##### Daly
 
 Economies are a subset of the biosphere;all systems are built on a foundation which is ecology and biodiversity
 
 Steady-state economy:
-
-using GDP as a measure of growth is unsustainable; it is a limited resource
-
-at some point GDP will plateau and we will need a steady-state that sustains itself
-
-Instead of focusing on economy, focus on quality of living
+- using GDP as a measure of growth is unsustainable; it is a limited resource
+- at some point GDP will plateau and we will need a steady-state that sustains itself
+- Instead of focusing on economy, focus on quality of living
 
 Economy operating in empty vs full world
 
@@ -93,16 +70,11 @@ Ecological limits
 Limits to the regenerative capacity
 
 Alernatives:
-
-different metrics than GDP
-
-happiness indices
-
-including environmental resources into metrics like GDP
+- different metrics than GDP
+- happiness indices
+- including environmental resources into metrics like GDP
 
 Economic imperialism: expanding the economy to the max capacity of the ecosystem
-
-Raskin
 
 As society has grown, complexity on the global scale increasing
 
@@ -112,8 +84,6 @@ Drivers of change are cultural, political, education
 Industrial ecology
 
 Greenification at all levels of the industrial process
-
-
 
 State Governments' Role in Environmental Protection Policy
 
@@ -151,11 +121,7 @@ weakening of existing policies
 
 transboundary resources (aquifer)
 
-
-
-PLN 5460
-Bhuwan Thapa
-29 Jan 2024
+#### 29 Jan 2024
 
 Before CAWA (1970s), two common law doctrines were mostly what regulated environmental pollution
 
@@ -246,8 +212,6 @@ Required just compensation because his land value dropped
 1995 Babbitt v Sweet Home
 
 established 'intent to harm' in ESA includes intent to damage habitat
-
-
 
 1996
 
@@ -401,13 +365,19 @@ after quadrupling the oversight budget, inspections dropped 20x
 
 2008 Consolidated Appropriations Act
 
-required public reporting of GHGs from large sources2011 Cross-State Air Pollution Rule
+required public reporting of GHGs from large sources
+2011 Cross-State Air Pollution Rule
 
-reduce emissions that cross state boundaries2012 NFIP Extension Act2012 Clean Energy Standard
+reduce emissions that cross state boundaries
+2012 NFIP Extension Act
+2012 Clean Energy Standard
 
-National goal for clean energy2016 Climate Solutions Caucus
+National goal for clean energy
+2016 Climate Solutions Caucus
 
-bipartisan caucus to find common ground solutions to climate change2021 Rejoined Paris Climate Accord2022 IRA
+bipartisan caucus to find common ground solutions to climate change
+2021 Rejoined Paris Climate Accord
+2022 IRA
 
 PLN 5460
 Bhuwan Thapa
@@ -498,9 +468,7 @@ citizens suits
 
 SLAPP lawsuits
 
-
-
-Feb 7, 2024
+#### Feb 7, 2024
 
 Environmental Agencies
 
@@ -568,7 +536,7 @@ permitting and inspections
 
 natural resource protection
 
-Feb 12, 2024
+#### Feb 12, 2024
 
 National Environmental Policy Act
 
@@ -600,9 +568,7 @@ Environmental Assessment
 
 determine whether there is sufficient evidence to require an EIS
 
-
-
-Feb 14, 2024
+#### Feb 14, 2024
 
 NEPA
 
@@ -672,9 +638,7 @@ Economic, Social
 
 Health
 
-
-
-Feb 19, 2024
+#### Feb 19, 2024
 
 Direct and Indirect Environmental Impacts
 
@@ -698,7 +662,7 @@ Insufficient Information
 
 Inadequate
 
-Feb 26, 2024
+#### Feb 26, 2024
 
 Bush - 1990 US Global Climate Change Research Program
 
@@ -742,10 +706,8 @@ Emission leakage:
 
 pricing carbon just moves the power industry to other states where elecricity is cheaper
 
-PLN 5460
-Dr. Bhuwan Thapa
-George Santucci
-Feb 28, 2024
+#### Feb 28, 2024
+#### George Santucci
 
 Boone Community Climate Action Plan
 
@@ -761,7 +723,7 @@ ICLEI - Clearpath estimates emissions
 Town requires ~200kWh yearly
 aka 40 MW generation capacity
 
-March 4, 2024
+#### March 4, 2024
 
 Stormwater Management
 
