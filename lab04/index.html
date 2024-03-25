@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stiltgrass Observations by Population</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
+    <style>
+    html {
+        height: 100%;
+    }
+    body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+    .info {
+        z-index: 1000;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        padding: 6px 8px;
+        font: 16px serif;
+        text-align: right;
+        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        min-width: 200px;
+    }
+    .info h1 {
+        font-size: 16px;
+        margin: 0 0 5px;
+        color: #777777;
+    }
+    .legend {
+        z-index: 1000;
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        padding: 6px 8px;
+        font: 14px Arial, Helvetica, sans-serif;
+        background: white;
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+    .legend i {
+        width: 18px;
+        height: 16px;
+        float: left;
+        margin-right: 8px;
+        opacity: 0.7;
+    }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+    var map = L.map('map').setView([37.8, -96], 5);
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(map);
+
+    // colors
+    // 0.001, 0.022, 0.042, 0.069, 0.107, 0.17, 0.303, 5.472 // Quantiles
+    var grades = [0, 0.105, 0.266, 0.574, 1.155, 2.226, 1.059, 5.472]; // Jenks natural breaks
+    // var colors = chroma.scale('YlGn').gamma(1).colors(grades.length);
+    var colors = chroma.scale(['#ffffcc', '#d9f0a3', '#78c679', '#238443', '#005a32']).gamma(0.5).colors(grades.length); // ColorBrewer YlGn
+
+    function getColor(d) {
+        for (var i = 0; i < grades.length - 1; i++) {
+            if ( d > grades[i] && d <= grades[i+1] ) return colors[i];
+        }
+        if (d > grades[grades.length - 1]) return colors[grades.length];
+    }
+
+    function style(feature) { return {
+        weight: 1,
+        opacity: 0.7,
+        color: 'grey',
+        dashArray: '3',
+        fillOpacity: 0.65,
+        fillColor: getColor(feature.properties.ObsPerPop)
+    }; }
+
+
+    // Create info box
+    var info = L.control();
+    info.onAdd = function (map) {
+      this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+      this.update();
+      return this._div;
+    };
+
+    // For updating info box
+    info.update = function (props) {
+        this._div.innerHTML = '<h1>Japanese Stiltgrass Observations by Population</h1>' +  (props ?
+        '<b>' + props.NAME + '</b><br />' + props.ObsPerPop + ' observations per 1,000 residents'
+        : 'Hover over a county');
+    };
+
+    info.addTo(map);
+
+    // Highlight a feature when the mouse hovers on it.
+    function highlightFeature(e) {
+        var layer = e.target;
+        // the target captures the object that the event associates with
+        layer.setStyle({
+        weight: 8,
+        opacity: 0.8,
+        color: '#e3e3e3',
+        fillColor: '#1c5ee3',
+        fillOpacity: 0.5
+        });
+        layer.bringToFront();
+
+        // select the update class, and update the content with the input value.
+        info.update(layer.feature.properties);
+    }
+
+    // Reset the hightlighted feature when the mouse is out of its region.
+    function resetHighlight(e) {
+        data.resetStyle(e.target);
+        info.update();
+    }
+
+
+    // Zoom to the highlighted feature when the mouse clicks it.
+    function zoomToFeature(e) {
+        map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            click: zoomToFeature,
+            mouseout: resetHighlight
+        });
+    }
+
+
+    // load data with color styling
+    data = L.geoJson.ajax("assets/mivi_counties.geojson", { style: style, onEachFeature: onEachFeature }).addTo(map);
+
+	// zoom map to data extent
+    // once geojson loads
+    setTimeout(() => {
+            map.fitBounds(data.getBounds());
+        }, 200
+    );
+
+    </script>
+</body>
+</html>
+<!-- Table ID: DECENNIALDHC2020.P1
+Title: TOTAL POPULATION
+Source: U.S. Census Bureau, 2020 Census Demographic and Housing Characteristics File (DHC)
+-->
