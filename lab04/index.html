@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
     <style>
     html {
@@ -28,16 +28,16 @@
         right: 20px;
         top: 20px;
         padding: 6px 8px;
-        font: 16px serif;
-        text-align: right;
+        font: 18px serif;
+        text-align: center;
         background: white;
         background: rgba(255, 255, 255, 0.8);
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         border-radius: 5px;
-        min-width: 200px;
+        min-width: 250px;
     }
     .info h1 {
-        font-size: 16px;
+        font-size: 20px;
         margin: 0 0 5px;
         color: #777777;
     }
@@ -45,7 +45,7 @@
         z-index: 1000;
         position: absolute;
         right: 20px;
-        bottom: 20px;
+        bottom: 30px;
         padding: 6px 8px;
         font: 14px Arial, Helvetica, sans-serif;
         background: white;
@@ -64,6 +64,7 @@
 </head>
 <body>
     <div id="map"></div>
+    <div class="legend"></div>
     <script>
     var map = L.map('map').setView([37.8, -96], 5);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(map);
@@ -71,6 +72,7 @@
     // colors
     // 0.001, 0.022, 0.042, 0.069, 0.107, 0.17, 0.303, 5.472 // Quantiles
     var grades = [0, 0.105, 0.266, 0.574, 1.155, 2.226, 1.059, 5.472]; // Jenks natural breaks
+
     // var colors = chroma.scale('YlGn').gamma(1).colors(grades.length);
     var colors = chroma.scale(['#ffffcc', '#d9f0a3', '#78c679', '#238443', '#005a32']).gamma(0.5).colors(grades.length); // ColorBrewer YlGn
 
@@ -89,7 +91,7 @@
         fillOpacity: 0.65,
         fillColor: getColor(feature.properties.ObsPerPop)
     }; }
-    
+
     // Create info box
     var info = L.control();
     info.onAdd = function (map) {
@@ -100,10 +102,15 @@
 
     // For updating info box
     info.update = function (props) {
-        this._div.innerHTML = '<h1>Japanese Stiltgrass Observations by Population</h1>' +  (props ?
-        '<b>' + props.NAME + '</b><br />' + props.ObsPerPop + ' observations per 1,000 residents'
-        : 'Hover over a county');
-    }.addTo(map);
+        this._div.innerHTML = '<h1>Japanese Stiltgrass Observations by Population</h1>' +
+        '<p>Japanese Stiltgrass (<i>Microstegium vimineum</i>) is a highly invasive grass from East Asia which has invaded much of the East Coast.</p>' +
+        '<p>This map shows observations of stiltgrass by county, per thousand residents.</p>' +
+        '<p>Observations from iNaturalist are heavily skewed towards populated areas, so this shows a more accurate representation of the distribution.</p><br>' +
+        (props ? '<b>' + props.NAME + '</b><br>' + props.ObsPerPop + ' observations per 1,000 residents'
+        : 'Hover over a county<br><br><br>');
+    };
+
+    info.addTo(map);
 
     // feature interaction
     function highlightFeature(e) {
@@ -146,6 +153,19 @@
             map.fitBounds(data.getBounds());
         }, 200
     );
+
+    // legend
+    var labels = [];
+    for (var i = 0; i < grades.length - 1; i++) {
+        labels.push('<i style="background:' + colors[i] + '"></i> ' + grades[i] + ' - ' + grades[i + 1]);
+    }
+
+    labels.push('<i style="background:' + colors[grades.length - 1] + '"></i> ' + grades[grades.length - 1] + ' +');
+    $(".legend").html(labels.join('<br>'));
+
+    map.attributionControl.addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a> | ' +
+        'Population data &copy; <a href="https://census.gov/">US Census Bureau</a> | ' +
+        'Map by <a href="https://rivermont.xyz">Will Bennett</a>, source code available <a href="">on GitHub</a>.');
     </script>
 </body>
 </html>
