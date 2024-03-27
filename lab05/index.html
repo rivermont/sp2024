@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Landcover Basemap using Mapbox</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        position: absolute;
+        top:0;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoicml2ZXJtb250IiwiYSI6ImNqbnh6YmV2czAxanIza254ODh2Y3BtczMifQ.i0gDvwsYga2slFQ3g4ciyw';
+
+    const map = new mapboxgl.Map({
+        container: 'map',
+        center: [-95.3, 39.5],
+        zoom: 5,
+        style: 'mapbox://styles/rivermont/clu76n7sf00m801nwa5e63cr7',  // lab work
+        // style: 'mapbox://styles/rivermont/cl0vbkih5000t15lspu8tsw53',  // landcover
+    });
+    </script>
+</body>
+</html>
